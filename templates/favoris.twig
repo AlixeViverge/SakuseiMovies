@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | favoris</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Vos favoris</h1>
+<p>Retrouvez les films que vous avez préférés.</p>
+{% endblock %}
+
+
+{% block main %}
+<section>
+    {% for favoris in favoris %}
+    <article class="favoris align flex">
+        <ul class="elmt_favoris">
+            <li class="flm_titre">{{favoris.titre}}</li>
+            <li>Résumé: {{favoris.resume}}</li>
+            <li>Réalisé par: {{favoris.prenom_realisateur}} {{favoris.nom_realisateur}}</li>
+            <li>Avec: {{favoris.prenom_acteur}} {{favoris.nom_acteur}}</li>
+            <li>Genre: {{favoris.genre}}</li>
+            <li><a class="delete_fav" href="favoris.php?id={{favoris.id_favoris}}&action=del">Supprimer de mes favoris</a>
+            </li>
+        </ul>
+        <img class="favoris_img" src="{{favoris.image}}" alt="affiche film favoris">
+
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

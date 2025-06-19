@@ -1,0 +1,3 @@
+Options  -Indexes
+ErrorDocument 404  /~viverge/SAE203_VIVERGE_Alixe/404.php
+ErrorDocument 403  /~viverge/SAE203_VIVERGE_Alixe/403.html

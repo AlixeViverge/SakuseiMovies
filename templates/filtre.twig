@@ -1,0 +1,65 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | filtre</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Filtre</h1>
+<p>Vous pouvez trier les films du site.</p>
+{% endblock %}
+
+
+{% block main %}
+<section>
+    <p class="filtre_description center">Vous pouvez désormais trier par genres et réalisateurs tous les films présents sur notre site. Amusez-vous bien!!
+    </p>
+    <div class="flex">
+        <aside>
+            <form class="filtre_form" name="filtre" id="filtreForm" method="POST" action="filtre.php">
+                <div class="flex">
+                    <div class="filtre_realisateur padding">
+                        <details>
+                            <summary>Réalisateurs</summary>
+                            {% for realisateur in realisateur %}
+                                <p class="flex"><input class="checkbox" type="checkbox" id="{{realisateur.id_acteur}}" name="realisateur[]" value="{{realisateur.id_realisateur}}">
+                                    <label for="{{realisateur.id_realisateur}}">{{realisateur.prenom_realisateur}} {{realisateur.nom_realisateur}}</label>
+                                </p>
+                            {% endfor %}
+                        </details>
+
+                        <details>
+                            <summary class="filtre_height">Genres</summary>
+                            {% for genre in genre %}
+                                <p class="flex"><input class="checkbox" type="checkbox" id="{{genre.id_genre}}" name="genre[]" value="{{genre.id_genre}}">
+                                    <label for="{{genre.id_genre}}">{{genre.genre}}</label>
+                                    
+                                </p>
+                            {% endfor %}
+                        </details>
+
+                        <details>
+                            <summary class="filtre_height">Acteurs</summary>
+                            {% for acteur in acteur %}
+                                <p class="flex"><input class="checkbox" type="checkbox" id="{{acteur.id_acteur}}" name="acteur[]" value="{{acteur.id_acteur}}">
+                                    <label for="{{acteur.id_acteur}}">{{acteur.prenom_acteur}} {{acteur.nom_acteur}}</label>
+                                </p>
+                            {% endfor %}
+                        </details>
+                    </div>
+                </div>
+
+                <p class="center">Il y a {{filtre_count.filtre_count}} résultats.</p>
+                <p class="submit_p flex"><input class="button_form" type="submit" value="Filtrer"></p>
+            </form>
+        </aside>
+
+        <article class="result_filtre">
+            {% for filtre in filtre %}
+            <a href="detail.php?id={{filtre.id_film}}"><img class="img_filtre" src="{{filtre.image}}" alt="{{filtre.titre}}"></a>
+            {% endfor %}
+        </article>
+    </div>
+</section>
+
+{% endblock %}

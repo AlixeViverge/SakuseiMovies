@@ -1,0 +1,64 @@
+{% extends 'base.twig'%}
+
+{% block title %}
+<title>Sakusei Movies | détails</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Sakusei Movies</h1>
+<p>Retrouvez les informations correspondantes au film que vous avez choisi!</p>
+{% endblock %}
+
+
+{% block main %}
+<section>
+    <article class="detail align flex">
+        <img class="detail_img" src="{{detail.image}}" alt="affiche film choisi">
+        <ul class="elmt_detail">
+            <li class="flm_titre">{{detail.titre}}</li>
+            <li>Résumé: {{detail.resume}}</li>
+            <li>Réalisé par: {{detail.prenom_realisateur}} {{detail.nom_realisateur}}</li>
+            <li>Avec: {{detail.prenom_acteur}} {{detail.nom_acteur}}</li>
+            <li>Genre: {{detail.genre}}</li>
+            <li>Durée: {{detail.duree}}min</li>
+            <li>Sorti le {{detail.date}}</li>
+            <li class="favorite"><a href="favoris.php?id={{detail.id_film}}&action=add">Ajouter à mes favoris<i class="bi bi-heart"></i></a></li>
+        </ul>
+    </article>
+</section>
+
+<section class="wrap_comm">
+    <h2 class="center">Donnez nous votre avis</h2>
+    <article class="formulaire center flex">
+        <form action="reception.php" method="POST">
+            <input type="hidden" name="id_film" id="id_film" value="{{detail.id_film}}">
+            <fieldset>
+                <p> <label for="pseudo"> Votre pseudo: </label>
+                    <input id="pseudo" name="pseudo" id="pseudo" type="text">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Votre commentaire</legend>
+                <p> <label for="commentaire">Qu'avez vous pensé de ce film?</label> </p>
+                <textarea name="commentaire" id="commentaire" cols="60" rows="10"></textarea>
+            </fieldset>
+
+            <fieldset class="submition flex">
+                <p> <input id="sub" name="sub" type="submit"> </p>
+                <p> <input id="reset" name="reset" type="reset"> </p>
+            </fieldset>
+        </form>
+    </article>
+</section>
+
+<section class="wrap_comm comments_section">
+    <h2 class="center">Section commentaire</h2>
+    {% for comm in comm %}
+    <article class="commentaire center">
+        <h3>{{comm.pseudo}}</h3>
+        <p>"{{comm.commentaire}}"</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

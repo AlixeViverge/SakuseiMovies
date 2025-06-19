@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | erreur 404</title>
+{% endblock title %}
+
+{% block content %}
+<h1>{{info.titre}}</h1>
+<p>{{info.texte}}</p>
+{% endblock %}
+
+{% block main %}
+<section>
+    <div class="meme_bonus center flex">
+        <h3>Pour la peine voici des images bonus:</h3>
+        <div class="img_bonus flex">
+            <img src="./images/frog.png" alt="grenouille de chihiro">
+            <img src="./images/miya.png" alt="miyazaki meme">
+            <img src="./images/ponyo_meme.png" alt="ponyo meme">
+            <img src="./images/sansvisage.png" alt="sans visage qui mange">
+            <img src="./images/muta.png" alt="muta du royaume des chats">
+        </div>
+        <p>Maintenant vous devriez retourner sur les bonnes pages!</p>
+        <div class="bob flex">
+            <a class="return_home center flex" href="index.php">Accueil</a>
+        </div>
+    </div>
+</section>
+{% endblock main %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/png" href="./images/fav.png" />
+	{% block title %}
+	{% endblock title %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header role="banner">
+		<div class="wrapper">
+			<div class="top flex between">
+				<a href="index.php"><img class="sakusei" src="./images/sakusei.png" alt="logo sakusei"></a>
+
+				<nav class="barre_nav" role="navigation">
+					<ul class="flex">
+						<li>
+							<a href="index.php">Accueil</a>
+						</li>
+						<li>
+							<a href="genre.php">Genres</a>
+						</li>
+						<li>
+							<a href="realisateur.php">Réalisateurs</a>
+						</li>
+						<li>
+							<a href="liste.php">Liste des films</a>
+						</li>
+						<li>
+							<a href="filtre.php">Filtre</a>
+						</li>
+						<li>
+							<a href="favoris.php">Mes favoris
+								<i class="bi bi-heart"></i></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="content wrapper">
+				{% block content %}
+				{% endblock content %}
+			</div>
+		</div>
+	</header>
+	<main role="main" class="wrapper">
+		{% block main %}
+		{% endblock main %}
+	</main>
+
+	<footer role="contentinfo" class="center flex">
+		<h3>Sakusei Movies</h3>
+		<div class="line center wrapper"></div>
+		<nav role="navigation">
+			<ul class="nav_footer flex">
+				<li>
+					<a href="index.php">Accueil</a>
+				</li>
+				<li>
+					<a href="genre.php">Genres</a>
+				</li>
+				<li>
+					<a href="realisateur.php">Réalisateurs</a>
+				</li>
+				<li>
+					<a href="liste.php">Liste des films</a>
+				</li>
+				<li>
+					<a href="filtre.php">Filtre</a>
+				</li>
+				<li>
+					<a href="favoris.php">Mes favoris
+						<i class="bi bi-heart"></i></a>
+				</li>
+			</ul>
+		</nav>
+		<p>Réalisé par: Alixe Viverge | &copy; 2023 | Tous droits réservés</p>
+	</footer>
+</body>
+
+</html>

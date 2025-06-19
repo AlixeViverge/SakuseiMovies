@@ -1,0 +1,34 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | réalisateurs</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Par réalisateur</h1>
+<p>Retrouvez ci-dessous la liste des films de tous les réalisateur.</p>
+{% endblock %}
+
+
+{% block main %}
+<section>
+    <article>
+        <h2>Qui a réalisé quel(s) film(s)?</h2>
+    </article>
+    <article class="realisateur_contenu flex between">
+        <!--<img class="howl" src="./images/howl.jpg" alt="howl">-->
+        {% for filmsrealisateur in filmsrealisateur %}
+        <article class="realisateur_elmt center">
+            <h2 class="nomreal">{{ filmsrealisateur.nom_realisateur }} {{ filmsrealisateur.prenom_realisateur }}</h2>
+            <ul>
+                {% for film in filmsrealisateur.films %}
+                <li class="nomfilm">{{film}}</li>
+                {% endfor %}
+            </ul>
+        </article>
+        {% endfor %}
+    </article>
+</section>
+
+
+{% endblock %}

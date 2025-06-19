@@ -1,0 +1,104 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | genres</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Par genre</h1>
+<p>Retrouvez ci-dessous les films séparés en 4 genres différents.</p>
+{% endblock %}
+
+
+{% block main %}
+<section class="genre_id flex">
+	<article class="circle flex">
+		<a href="#aventure"><img class="genre_circle" src="./images/genre_aventure.png" alt="image genre aventure">
+		</a>	
+		<p class="center">aventure</p>
+	</article>
+
+	<article class="circle flex">
+		<a href="#drame"><img class="genre_circle" src="./images/genre_drame.png" alt="image genre drame">
+		</a>	
+		<p class="center">drame</p>
+	</article>
+
+	<article class="circle flex">
+		<a href="#fantastique"><img class="genre_circle" src="./images/genre_fanta.png" alt="image genre fantastique">
+		</a>	
+		<p class="center">fantastique</p>
+	</article>
+
+	<article class="circle flex">
+		<a href="#romance"><img class="genre_circle" src="./images/genre_romance.png" alt="image genre romance">
+		</a>
+		<p class="center">romance</p>
+	</article>
+</section>
+
+<section>
+	<h2 id="aventure">Aventure</h2>
+	<div class="genre flex">
+		{% for aventure in aventure %}
+		<article class="elmt_genre flex">
+			<ul>
+				<li><a href="detail.php?id={{aventure.id_film}}"><img src="{{aventure.image}}"
+							alt="affiche film aventure"></a></li>
+				<li>{{aventure.titre}}</li>
+				<li>{{aventure.prenom_realisateur}} {{aventure.nom_realisateur}}</li>
+			</ul>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+
+<section>
+	<h2 id="drame">Drame</h2>
+	<div class="genre flex">
+		{% for drame in drame %}
+		<article class="elmt_genre flex">
+			<ul>
+				<li><a href="detail.php?id={{drame.id_film}}"><img src="{{drame.image}}" alt="affiche film drame"></a>
+				</li>
+				<li>{{drame.titre}}</li>
+				<li>{{drame.prenom_realisateur}} {{drame.nom_realisateur}}</li>
+			</ul>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+
+<section>
+	<h2 id="fantastique">Fantastique</h2>
+	<div class="genre flex">
+		{% for fantastique in fantastique %}
+		<article class="elmt_genre flex">
+			<ul>
+				<li><a href="detail.php?id={{fantastique.id_film}}"><img src="{{fantastique.image}}"
+							alt="affiche film fantastique"></a></li>
+				<li>{{fantastique.titre}}</li>
+				<li>{{fantastique.prenom_realisateur}} {{fantastique.nom_realisateur}}</li>
+			</ul>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+
+<section>
+	<h2 id="romance">Romance</h2>
+	<div class="genre flex">
+		{% for romance in romance %}
+		<article class="elmt_genre flex">
+			<ul>
+				<li><a href="detail.php?id={{romance.id_film}}"><img src="{{romance.image}}"
+							alt="affiche film romance"></a></li>
+				<li>{{romance.titre}}</li>
+				<li>{{romance.prenom_realisateur}} {{romance.nom_realisateur}}</li>
+			</ul>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+
+{% endblock %}

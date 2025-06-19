@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies | liste films</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Liste de tous les Films</h1>
+<p>Retrouvez ci-dessous la liste des 30 films présents sur ce site.</p>
+{% endblock %}
+
+{% block main %}
+<section>
+	<h2>Tous les films</h2>
+	<div class="genre flex">
+		{% for lst in lst %}
+		<article>
+			<a href="detail.php?id={{lst.id_film}}"><img class="lst_films flex between" src="{{lst.image}}"
+					alt="affiche film"></a>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+<title>Sakusei Movies</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Sakusei Movies</h1>
+<p>Vous pourrez retrouver la fiche de 30 films d'animation japonaise!!</p>
+{% endblock %}
+
+{% block main %}
+<section>
+	<h2>A l'affiche</h2>
+	<article class="affiche flex between">
+		{% for affiche in affiche %}
+
+		<a href="detail.php?id={{affiche.id_film}}"><img src="{{affiche.image}}" alt="affiche film à l'affiche"></a>
+
+		{% endfor %}
+	</article>
+</section>
+
+<section>
+	<h2>Nous vous conseillons</h2>
+	{% for conseil in conseil %}
+	<article class="conseil1 flex">
+		<img src="{{conseil.image}}" alt="affiche film conseillé">
+		<ul>
+			<li class="flm_titre">{{conseil.titre}}</li>
+			<li>{{conseil.resume}}</li>
+			<li>Durée: {{conseil.duree}}min</li>
+		</ul>
+	</article>
+	{% endfor %}
+
+</section>
+
+<section>
+	<h2>Autres informations</h2>
+	<div class="autres_infos flex between">
+		<article class="box_infos center">
+			<p class="info_titre">Film de plus de 2 heures</p>
+			{% for duree in duree %}
+			<ul>
+				<li>{{duree.titre}} &rarr; {{duree.duree}}min</li>
+			</ul>
+			{% endfor %}
+		</article>
+
+		<article class="box_infos center">
+
+			{% for avg in avg %}
+			<p class="info_titre">Infos durée</p>
+			<ul>
+				<li>
+					<p>Durée moyenne des films: {{avg.avg}}min</p>
+				</li>
+			</ul>
+			{% endfor %}
+
+
+			<p>Le films le plus court dure
+				{% for min in min %}
+				{{min.min}}min.
+				{% endfor %}
+			</p>
+		</article>
+
+		<article class="box_infos center">
+			<p class="info_titre">Nombre de films sur le site</p>
+			{% for nb_film in nb_film %}
+			<p>Vous pouvez retrouver la fiche de
+				{{nb_film.nb_film}}
+				films d'animation japonaise sur ce site! Et pas seulement les films du Studio Ghibli!!</p>
+			{% endfor %}
+		</article>
+	</div>
+</section>
+
+<section>
+	<h2>Nos suggestions</h2>
+	<article class="suggestions flex between">
+		{% for suggest in suggest %}
+		<div class="elmt_suggestions flex">
+			<a href="detail.php?id={{suggest.id_film}}"><img src="{{suggest.image}}" alt="affiche film suggéré"></a>
+			<ul class="center">
+				<li class="center">{{suggest.titre}}</li>
+				<li>{{suggest.nom_realisateur}}</li>
+			</ul>
+		</div>
+		{% endfor %}
+	</article>
+</section>
+
+
+{% endblock %}
